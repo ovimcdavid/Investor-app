@@ -1,0 +1,22 @@
+{
+  "name": "investor-app",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "services/*"
+  ],
+  "scripts": {
+    "dev:auth": "ts-node services/auth/index.ts",
+    "dev:portfolio": "ts-node services/portfolio/index.ts",
+    "dev:web": "next dev apps/web",
+    "dev": "concurrently \"npm:dev:auth\" \"npm:dev:portfolio\" \"npm:dev:web\"",
+    "build": "npm run build -w apps/web",
+    "start": "npm run start -w apps/web"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.0"
+  }
+}
